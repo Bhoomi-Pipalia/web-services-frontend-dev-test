@@ -5,7 +5,7 @@ const ThemeMode = () => {
 
   const [themeMode, setThemeMode] = useState( getLocalStorage('theme') ? getLocalStorage('theme') : 'light' );
 
-  const contrastTheme = themeMode === "dark" ? "light" : "dark";
+  const contrastTheme = themeMode === 'dark' ? 'light' : 'dark';
 
   useEffect(() => {
     const root = window.document.documentElement;

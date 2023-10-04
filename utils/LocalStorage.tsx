@@ -14,6 +14,7 @@ export const setLocalStorage = (key:string, data:any): void => {
  * Get data from local storage.
  *
  * @param {string} key Local storage key.
+ * @return {any} data return stored data.
  */
 export const getLocalStorage = ( key:string ): any | null => {
   let data = null;
