@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Layout from "@/components/Global/Layout";
+import Characters from "@/components/Characters/Characters";
 
 const Home: NextPage = () => {
 
@@ -12,7 +14,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Marvel Characters</h1>
+      <Layout>
+        <Characters />
+      </Layout>
     </>
   );
 };
