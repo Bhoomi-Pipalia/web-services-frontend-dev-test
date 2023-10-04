@@ -20,11 +20,11 @@ const Characters = () => {
 
   return (
     <>
-      <h1 className="text-3xl mb-5">Marvel Characters</h1>
+      <h1 className="text-3xl text-center mb-5 dark:text-white">Marvel Characters</h1>
       {
         ! isLoading
         ? <List characters={ characters }/>
-        : <div>Loading...</div>
+        : <div className="text-center dark:text-white">Loading...</div>
       }
     </>
   );
