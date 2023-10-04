@@ -8,7 +8,7 @@ type Props = {
 const List = ({ characters } : Props) => {
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-[1rem]">
       {
         characters.map( ( character: ICharacter ) => {
           return(
