@@ -69,7 +69,7 @@ const Characters = () => {
             {
               filteredCharacters().length
               ? <List characters={ filteredCharacters() }/>
-              : <p className="text-center dark:text-white">No character found for the given name.</p>
+              : <p className="text-center dark:text-white">No character found for the given name or category.</p>
             }
           </>
         : <div className="text-center dark:text-white">Loading...</div>

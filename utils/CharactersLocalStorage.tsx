@@ -57,7 +57,18 @@ export const getAllUniqueTags = () => {
   let allUniqueTags;
 
   if ( storedCharacters ) {
-    allUniqueTags =  [...new Set( ...storedCharacters.map( item => item.tags ? item.tags : '' ) ) ];
+
+    var result : string[][] = [];
+
+    storedCharacters.forEach((character) => {
+      if(character.tags) {
+        result.push(character.tags);
+      }
+    });
+
+    if( result ) {
+      allUniqueTags =  [...new Set( [].concat( ...result as [] ) )];
+    }
   }
 
   return allUniqueTags;
