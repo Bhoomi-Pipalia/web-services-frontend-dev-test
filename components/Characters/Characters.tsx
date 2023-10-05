@@ -1,7 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
+import { storeCharacters, getStoredCharacters } from "@/utils/CharactersLocalStorage";
 import List from "@/components/Characters/List";
 import FilterBar from "@/components/Characters/FilterBar";
 import { ICharacter } from '@/interfaces/character';
+
 
 const Characters = () => {
 
@@ -15,7 +17,22 @@ const Characters = () => {
     fetch('https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/all.json')
       .then((res) => res.json())
       .then((data) => {
-        setCharacters(data);
+        let storedCharacters = getStoredCharacters();
+
+        if ( storedCharacters ) {
+          let updatedCharacters = storedCharacters.map( ( character : ICharacter, index : number ) => {
+            return Object.assign({}, character, data[index])
+          });
+
+          setCharacters(updatedCharacters);
+          storeCharacters(updatedCharacters);
+
+        } else {
+
+          setCharacters(data);
+          storeCharacters(data);
+        }
+
         setLoading(false);
       });
   }, [ characters ]);
