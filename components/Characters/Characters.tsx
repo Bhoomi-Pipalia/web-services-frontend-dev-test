@@ -10,6 +10,7 @@ const Characters = () => {
   const [characters, setCharacters] = useState<ICharacter[]>([]);
   const [isLoading, setLoading] = useState(true);
   const [searchFilter, setSearchFilter] = useState<string>('');
+  const [tagFilter, setTagFilter] = useState("");
 
   // Fetch all characters
   useEffect(() => {
@@ -56,7 +57,7 @@ const Characters = () => {
       {
         ! isLoading
         ? <>
-            <FilterBar onSearchFilter={ setSearchFilter } />
+            <FilterBar onSearchFilter={ setSearchFilter } onTagFilter={ setTagFilter } />
             {
               filteredCharacters().length
               ? <List characters={ filteredCharacters() }/>

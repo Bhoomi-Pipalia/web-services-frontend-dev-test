@@ -1,10 +1,24 @@
+import { useState } from "react";
+import { getAllUniqueTags } from '@/utils/CharactersLocalStorage';
+
 interface IProps {
   onSearchFilter: ( search : string ) => void
+  onTagFilter: ( tag : string ) => void
 }
 
 const FilterBar = ( props : IProps ) => {
 
+  const [tags, setTags] = useState(getAllUniqueTags());
+  const [activeTag, setActiveTag] = useState("");
+
+  const handleClick = ( event: React.SyntheticEvent, tag:string ) => {
+    event.preventDefault();
+    props.onTagFilter(activeTag != tag ? tag : '');
+    setActiveTag(activeTag != tag ? tag : '');
+  };
+
   return (
+  <div className="flex flex-col gap-[1rem]">
     <input
       type="text"
       name="s"
@@ -14,6 +28,20 @@ const FilterBar = ( props : IProps ) => {
       onChange={
         e => props.onSearchFilter( e.target.value )
       }/>
+
+      {
+        tags
+        ?
+        <div className="flex flex-wrap gap-[1rem]">
+          {
+            tags.map( (tag, i ) => {
+              return <div tabIndex={0} key={i} onClick={(e) => handleClick( e, tag )} className={'cursor-pointer px-3 py-1 rounded-[0.5rem]' + ( activeTag == tag ? ' bg-green-800 text-white' : ' bg-black dark:bg-white text-white dark:text-black' ) + ' transition-all hover:bg-green-800 hover:text-white' }>{tag}</div>
+            })
+          }
+        </div>
+        : <></>
+      }
+    </div>
   )
 }
 
