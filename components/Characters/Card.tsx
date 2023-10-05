@@ -43,7 +43,7 @@ const Card = ({ character, searchString } : Props) => {
               searchString
               ?
                 <Highlighter
-                  highlightClassName="bg-yello-300"
+                  highlightClassName="bg-yellow-300"
                   searchWords={[searchString]}
                   autoEscape={true}
                   textToHighlight={character.name}
