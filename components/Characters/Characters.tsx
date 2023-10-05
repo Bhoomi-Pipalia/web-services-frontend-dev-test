@@ -38,17 +38,25 @@ const Characters = () => {
       });
   }, [ characters ]);
 
-   // Filter characters by name
+  // Filter characters by name and tags
   const filteredCharacters = useCallback(
     () => {
-      if ( searchFilter ) {
+      if ( searchFilter && tagFilter ) {
+        return characters.filter(character => {
+          return character.tags && character.tags.includes(tagFilter) && character.name.toLowerCase().includes(searchFilter.toLowerCase());
+        })
+      } else if ( searchFilter ) {
         return characters.filter(character => {
           return character.name.toLowerCase().includes(searchFilter.toLowerCase());
+        })
+      } else if ( tagFilter ) {
+        return characters.filter(character => {
+          return character.tags && character.tags.includes(tagFilter);
         })
       } else {
         return characters;
       }
-    }, [characters, searchFilter]
+    }, [characters, searchFilter, tagFilter]
   );
 
   return (
