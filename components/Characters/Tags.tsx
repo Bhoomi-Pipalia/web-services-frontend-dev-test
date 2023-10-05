@@ -31,6 +31,9 @@ const Tags = ( { characterID, characterTags } : Props ) => {
       updateStoredCharacterTags(characterID, tempTags);
 
       setTagInput('');
+
+      // Add event to add the tags in filter.
+      window.dispatchEvent(new Event("storage"));
     }
   };
 
@@ -40,6 +43,9 @@ const Tags = ( { characterID, characterTags } : Props ) => {
       const tempTags = tags.filter((e) => e !== tag);
       setTags(tempTags);
       updateStoredCharacterTags(characterID, tempTags);
+
+      // Add event to remove the tags in filter.
+      window.dispatchEvent(new Event("storage"));
     }
   }
 

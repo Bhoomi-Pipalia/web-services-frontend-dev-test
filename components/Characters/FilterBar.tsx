@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getAllUniqueTags } from '@/utils/CharactersLocalStorage';
 
 interface IProps {
@@ -8,8 +8,19 @@ interface IProps {
 
 const FilterBar = ( props : IProps ) => {
 
-  const [tags, setTags] = useState(getAllUniqueTags());
+  const [tags, setTags] = useState< string[] | null >();
   const [activeTag, setActiveTag] = useState("");
+
+  // Update tags on local storage change.
+  useEffect(() => {
+
+    setTags( getAllUniqueTags() );
+
+    const listenStorageChange = () => {
+      setTags(getAllUniqueTags());
+    }
+    window.addEventListener("storage", listenStorageChange);
+  }, []);
 
   const handleClick = ( event: React.SyntheticEvent, tag:string ) => {
     event.preventDefault();
