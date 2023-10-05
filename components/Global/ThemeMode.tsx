@@ -17,7 +17,10 @@ const ThemeMode = () => {
   }, [themeMode, contrastTheme]);
 
   return (
-    <button onClick={() => setThemeMode(contrastTheme)}
+    <button
+      onClick={() => setThemeMode(contrastTheme)}
+      aria-label={themeMode == "light" ? "Theme Light" : "Theme Dark"}
+      aria-labelledby="Theme Mode Switcher"
       className='bg-gray-800 dark:bg-gray-50 hover:bg-gray-600 dark:hover:bg-gray-300 transition-all duration-100 text-white dark:text-gray-800 px-4 py-2 rounded-lg relative block me-0 ml-auto mb-4 lg:absolute lg:right-4 lg:top-4 lg:mb-0'>
         Toggle Mode
     </button>

@@ -23,6 +23,11 @@ const Card = ({ character, searchString } : Props) => {
   return (
     <div className="relative flex flex-col border border-neutral-300 dark:border-neutral-800 rounded-[0.8rem] overflow-hidden shadow-lg md:flex-row">
 
+      {/* Button */}
+      <button {...getToggleProps()} aria-expanded={isExpanded ? 'true' : 'false'} className="m-1 w-[2rem] h-[2rem] border border-gray-800 dark:border-white rounded-full text-gray-800 dark:text-white absolute right-[0] top-[12.5rem] md:top-0" aria-label={isExpanded ? 'Collapse ' + character.name + ' detail' : 'Expand ' + character.name + ' detail'}>
+        {isExpanded ? '-' : '+'}
+      </button>
+
       {/* Thumbnail */}
       <div className="basis-[12.5rem] grow-1 shrink-0 w-full h-[10rem] md:w-[12.5rem] md:h-[unset]">
         <Image
@@ -131,11 +136,6 @@ const Card = ({ character, searchString } : Props) => {
         </div>
 
       </div>
-
-      {/* Button */}
-      <button {...getToggleProps()} aria-expanded={isExpanded ? 'true' : 'false'} className="m-1 w-[2rem] h-[2rem] border border-gray-800 dark:border-white rounded-full text-gray-800 dark:text-white absolute right-[0] top-[12.5rem] md:top-0" aria-label={isExpanded ? 'Collapse' : 'Expand'}>
-        {isExpanded ? '-' : '+'}
-      </button>
     </div>
   );
 };
