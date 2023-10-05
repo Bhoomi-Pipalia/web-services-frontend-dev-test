@@ -41,22 +41,14 @@ const Characters = () => {
    // Filter characters by name
   const filteredCharacters = useCallback(
     () => {
-      if ( searchFilter && tagFilter ) {
-        return characters.filter(character => {
-          return character.tags && character.tags.includes(tagFilter) && character.name.toLowerCase().includes(searchFilter.toLowerCase());
-        })
-      } else if ( searchFilter ) {
+      if ( searchFilter ) {
         return characters.filter(character => {
           return character.name.toLowerCase().includes(searchFilter.toLowerCase());
-        })
-      } else if ( tagFilter ) {
-        return characters.filter(character => {
-          return character.tags && character.tags.includes(tagFilter);
         })
       } else {
         return characters;
       }
-    }, [characters, searchFilter, tagFilter]
+    }, [characters, searchFilter]
   );
 
   return (
