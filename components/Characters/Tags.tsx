@@ -65,7 +65,7 @@ const Tags = ( { characterID, characterTags } : Props ) => {
             tags.map(( tag : string, index : number ) => (
               <li key={index} className="cursor-pointer flex align-items-center gap-[0.5rem] px-2 py-1 rounded-lg transition-all bg-gray-500 text-white hover:bg-gray-200 hover:text-gray-800">
                 <span>{tag}</span>
-                <button type="button" aria-label="Click to remove tag" onClick={() => removeTag(tag)} className="px-1 text-[1rem] cursor-pointer">X</button>
+                <button type="button" aria-label={`Click to remove ${tag} tag`} onClick={() => removeTag(tag)} className="px-1 text-[1rem] cursor-pointer">X</button>
               </li>
             ))
           }
