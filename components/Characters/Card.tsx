@@ -1,5 +1,6 @@
 import { ICharacter } from '@/interfaces/character';
 import { useCollapse } from 'react-collapsed';
+import Tags from '@/components/Characters/Tags';
 import Image from "next/image";
 
 type Props = {
@@ -109,6 +110,9 @@ const Card = ({ character } : Props) => {
               }
             </ul>
           </div>
+
+          {/* Tags */}
+          <Tags/>
         </div>
 
       </div>
