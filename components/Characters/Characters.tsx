@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import List from "@/components/Characters/List";
 import { ICharacter } from '@/interfaces/character';
 
@@ -10,7 +10,7 @@ const Characters = () => {
   // Fetch all characters
   useEffect(() => {
 
-    fetch("https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/all.json")
+    fetch('https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/all.json')
       .then((res) => res.json())
       .then((data) => {
         setCharacters(data);
@@ -20,11 +20,11 @@ const Characters = () => {
 
   return (
     <>
-      <h1 className="text-3xl mb-5">Marvel Characters</h1>
+      <h1 className="text-3xl text-center mb-5 dark:text-white">Marvel Characters</h1>
       {
         ! isLoading
         ? <List characters={ characters }/>
-        : <div>Loading...</div>
+        : <div className="text-center dark:text-white">Loading...</div>
       }
     </>
   );
