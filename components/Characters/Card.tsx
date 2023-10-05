@@ -1,13 +1,15 @@
 import { ICharacter } from '@/interfaces/character';
 import { useCollapse } from 'react-collapsed';
+import Highlighter from "react-highlight-words";
 import Tags from '@/components/Characters/Tags';
 import Image from "next/image";
 
 type Props = {
   character: ICharacter;
+  searchString: string|null;
 };
 
-const Card = ({ character } : Props) => {
+const Card = ({ character, searchString } : Props) => {
 
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
@@ -36,7 +38,20 @@ const Card = ({ character } : Props) => {
       <div className={`grow flex flex-col gap-[1.5rem] p-[2rem] ${textColorClass}`}>
 
         <div>
-          <h2>{ character.name }</h2>
+          <h2>
+            {
+              searchString
+              ?
+                <Highlighter
+                  highlightClassName="bg-yello-300"
+                  searchWords={[searchString]}
+                  autoEscape={true}
+                  textToHighlight={character.name}
+                />
+              :
+                character.name
+            }
+          </h2>
           {
             character.biography.fullName ?
               <p>Full Name: <span className="capitalize">{character.biography.fullName}</span></p>

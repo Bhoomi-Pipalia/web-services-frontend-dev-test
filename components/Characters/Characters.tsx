@@ -9,7 +9,7 @@ const Characters = () => {
 
   const [characters, setCharacters] = useState<ICharacter[]>([]);
   const [isLoading, setLoading] = useState(true);
-  const [searchFilter, setSearchFilter] = useState<string>('');
+  const [searchFilter, setSearchFilter] = useState<string|null>(null);
   const [tagFilter, setTagFilter] = useState("");
 
   // Fetch all characters
@@ -68,7 +68,7 @@ const Characters = () => {
             <FilterBar onSearchFilter={ setSearchFilter } onTagFilter={ setTagFilter } />
             {
               filteredCharacters().length
-              ? <List characters={ filteredCharacters() }/>
+              ? <List characters={ filteredCharacters() } searchString={ searchFilter }/>
               : <p className="text-center dark:text-white">No character found for the given name or category.</p>
             }
           </>
