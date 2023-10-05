@@ -112,7 +112,7 @@ const Card = ({ character } : Props) => {
           </div>
 
           {/* Tags */}
-          <Tags/>
+          <Tags characterID={character.id} characterTags={character.tags ? character.tags : null}/>
         </div>
 
       </div>

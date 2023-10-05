@@ -1,9 +1,15 @@
 import { useState } from "react";
+import { updateStoredCharacterTags } from '@/utils/CharactersLocalStorage';
 
-const Tags = () => {
+type Props = {
+  characterID: number;
+  characterTags: string[] | null;
+};
+
+const Tags = ( { characterID, characterTags } : Props ) => {
 
   const [tagInput, setTagInput] = useState("");
-  const [tags, setTags] = useState< string[] | null >(null);
+  const [tags, setTags] = useState< string[] | null >(characterTags);
 
   // Add tag
   const onSubmit = async(event: React.SyntheticEvent) => {
@@ -18,16 +24,22 @@ const Tags = () => {
 
       const tag = target.tag.value.toLowerCase();
 
-      setTags(tags ? [ ...new Set( [...tags,  tag ] ) ] : [tag]);
+      const tempTags = tags ? [ ...new Set( [...tags,  tag ] ) ] : [tag];
+
+      setTags(tempTags);
+
+      updateStoredCharacterTags(characterID, tempTags);
 
       setTagInput('');
     }
   };
 
   // Remove tag
-  const removeTag = (tag:string) => {
+  const removeTag = ( tag : string ) => {
     if ( tags ) {
-      setTags(tags.filter((e) => e !== tag));
+      const tempTags = tags.filter((e) => e !== tag);
+      setTags(tempTags);
+      updateStoredCharacterTags(characterID, tempTags);
     }
   }
 
