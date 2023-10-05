@@ -46,7 +46,7 @@ const FilterBar = ( props : IProps ) => {
         <div className="flex flex-wrap gap-[1rem]">
           {
             tags.map( (tag, i ) => {
-              return <div tabIndex={0} key={i} onClick={(e) => handleClick( e, tag )} className={'cursor-pointer px-3 py-1 rounded-[0.5rem]' + ( activeTag == tag ? ' bg-green-800 text-white' : ' bg-black dark:bg-white text-white dark:text-black' ) + ' transition-all hover:bg-green-900 hover:text-white' }>{tag}</div>
+              return <button key={i} onClick={(e) => handleClick( e, tag )} className={'cursor-pointer px-3 py-1 rounded-[0.5rem]' + ( activeTag == tag ? ' bg-green-800 text-white' : ' bg-black dark:bg-white text-white dark:text-black' ) + ' transition-all hover:bg-green-900 hover:text-white' }>{tag}</button>
             })
           }
         </div>
