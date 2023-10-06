@@ -1,62 +1,43 @@
-# Project Title
+# Next.js + Tailwind Web Application
 
-Marvel characters project.
+This application uses an open-source REST API called  [superhero-api](https://akabab.github.io/superhero-api/api/) to display and filter superheroes.
 
-## Description
+## Table of contents
 
-An in-depth paragraph about your project and overview of use.
+- [Quick start](#quick-start)
+- [Build](#build)
+- [Features](#features)
 
-## Getting Started
+## Quick start
 
-### Dependencies
+To get started, you need to do the following:
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+- Run below command to clone this repository.
 
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
 ```
-code blocks for commands
+git clone https://github.com/Bhoomi-Pipalia/web-services-frontend-dev-test.git
 ```
 
-## Help
+- `npm install`: To install all of the project's dependencies.
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+## Build
 
-## Authors
+- `npm run dev`: To build the project in development mode.
 
-Contributors names and contact info
+- `npm run build`: To build the project in production mode.
 
-ex. Dominique Pizzie
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+## Features
+- Nextjs with Tailwind and TypeScript
+- Objects and properties with strict data typing
+- Eslint JavaScript
+- Extensive use of Tailwind classes
+- Componentization components
+- Accessible UI
+- Responsive layout
+- Support Dark mode
+- Manage tags
+- Search by name and tags
+- Highlight the matched search string
+- Collapsible card component
+- Persist data on reload
+- Standard Git workflow
